@@ -1,5 +1,5 @@
 //captures the user input on the command line
-var input = process.argv[2];
+// var input = process.argv[2];
 
 //All requires for NPM packages.
 var keys = require('./key.js');
@@ -88,7 +88,15 @@ request(queryUrl, function (error, response, body) {
 
         // Parse the body of the site and recover just the imdbRating
         // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+        console.log("Title: " + JSON.parse(body).Title);
         console.log("Release Year: " + JSON.parse(body).Year);
+        console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
+        console.log("Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating);
+        console.log("Country of Origin: " + JSON.parse(body).Country);
+        console.log("Language: " + JSON.parse(body).Language);
+        console.log("Plot: " + JSON.parse(body).Plot);
+        console.log("Actors: " + JSON.parse(body).Actors);
+        console.log("------------------------------------");
     }
 });
 
