@@ -16,7 +16,7 @@ Used Node JavaScript to create the LIRI bot...similar to iPhone's SIRI, but lang
 
 1. `node liri.js my-tweets`
 
-  * Displays my last 20 tweets in terminal window.
+  * Displays my last 20 tweets and when they were created in terminal window.
 
 2. `node liri.js spotify-this-song "song name"`
 

@@ -70,6 +70,7 @@ function myTweets() {
         if (!error) {
             for (var i = 0; i < 20; i++) {
                 console.log("Adolfo Tweet #" + i + ": " + tweets[i].text);
+                console.log("Tweet Created On: " + tweets[i].created_at);
             }
         }
     });
