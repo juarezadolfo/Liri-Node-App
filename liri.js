@@ -69,8 +69,15 @@ function myTweets() {
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
             for (var i = 0; i < 20; i++) {
-                console.log("Adolfo Tweet #" + i + ": " + tweets[i].text);
-                console.log("Tweet Created On: " + tweets[i].created_at);
+                console.log("Adolfo Tweet #" + i + ": " + tweets[i].text + "Tweet Created On: " + tweets[i].created_at);
+                console.log("------------------------------------");
+                
+                //adds text to log.txt file
+                fs.appendFile('log.txt',"\n" + "Adolfo Tweet #" + i + ": " + tweets[i].text + "Tweet Created On: " + tweets[i].created_at + "\n" + "=================================================================", function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
             }
         }
     });
@@ -91,6 +98,13 @@ function spotifySong(song) {
             console.log("Song's Name: " + data.tracks.items[i].name);
             console.log("Preview Link: " + data.tracks.items[i].preview_url);
             console.log("Album: " + data.tracks.items[i].album.name);
+
+            //adds text to log.txt file
+            fs.appendFile('log.txt',"\n" + "Song's Name: " + data.tracks.items[i].name + "\n" + "Preview Link: " + data.tracks.items[i].preview_url + "\n" + "Album: " + data.tracks.items[i].album.name + "\n" + "=================================================================", function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
         }
     });
 };
@@ -117,6 +131,14 @@ function omdbData(movieName) {
             console.log("Plot: " + JSON.parse(body).Plot);
             console.log("Actors: " + JSON.parse(body).Actors);
             console.log("------------------------------------");
+
+            //adds text to log.txt file
+            fs.appendFile('log.txt',"\n" + "Title: " + JSON.parse(body).Title + "\n" + "Release Year: " + JSON.parse(body).Year + "\n" + "IMDB Rating: " + JSON.parse(body).imdbRating + "\n" + "Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating + "\n" + "Country of Origin: " + JSON.parse(body).Country + "\n" + "Language: " + JSON.parse(body).Language + "\n" + "Plot: " + JSON.parse(body).Plot + "\n" + "Actors: " + JSON.parse(body).Actors + "\n" + "=================================================================", function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+
         }
     });
 };
